@@ -24,12 +24,20 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
 
-  public static final int rightSpark1 = 0;
-  public static final int leftSpark1 = 1;
+  //right front
+  public static final int rightSpark1 = 1;
+  //right back
   public static final int rightSpark2 = 2;
-  public static final int leftSpark2 = 3;
+  //left back
+  public static final int leftSpark1 = 3;
+  //left front
+  public static final int leftSpark2 = 4;
 
-  public static final int pcmPort = 4;
+  public static final int pdpPort = 5;
+
+  public static final int pcmPort = 0;
+  public static final int solenoidPort = 0;
+
   
 
 }
