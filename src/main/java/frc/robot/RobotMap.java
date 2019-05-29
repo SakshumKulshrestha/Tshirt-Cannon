@@ -34,7 +34,6 @@ public class RobotMap {
   public static final int leftSpark2 = 4;
 
   public static final int pdpPort = 5;
-
   public static final int pcmPort = 0;
   public static final int solenoidPort = 0;
 
