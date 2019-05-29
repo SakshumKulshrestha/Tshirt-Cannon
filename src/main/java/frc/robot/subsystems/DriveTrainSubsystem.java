@@ -34,6 +34,10 @@ public class DriveTrainSubsystem extends Subsystem{
         setDefaultCommand(new DriveWithControllers());
     }
 
+    public void arcade(){
+        driver.arcadeDrive(0.25, 0.25);
+    }
+
 
     public void arcade(double throttle, double turn){
 
