@@ -7,8 +7,11 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
+import frc.robot.commands.*;
 
 /**
  * Add your docs here.
@@ -16,13 +19,29 @@ import frc.robot.Robot;
 public class CannonSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+  Solenoid s1;
+
+  public CannonSubsystem(){
+    s1 = new Solenoid(RobotMap.solenoidPort);
+
+  }
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new Shoot());
 
   }
+
+  public void solenoidOut(){
+    s1.set(true);
+  }
+
+  public void solenoidIn(){
+    s1.set(false);
+  }
+
 
   
 
