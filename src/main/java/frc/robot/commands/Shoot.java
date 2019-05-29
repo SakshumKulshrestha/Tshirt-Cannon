@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class Shoot extends Command {
+
   public Shoot() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -27,7 +28,12 @@ public class Shoot extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    if(Robot.oi.m1.getAButton())
+      Robot.cannon_sub.solenoidOut();
     
+    if(!Robot.oi.m1.getAButton())
+      Robot.cannon_sub.solenoidIn();
+
   }
 
   // Make this return true when this Command no longer needs to run execute()
