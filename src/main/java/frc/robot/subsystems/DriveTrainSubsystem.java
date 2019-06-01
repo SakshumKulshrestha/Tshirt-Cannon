@@ -8,23 +8,26 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
 import frc.robot.commands.DriveWithControllers;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-public class DriveTrainSubsystem extends Subsystem{
+public class DriveTrainSubsystem extends Subsystem {
 
-    Spark RF;
-    Spark RB;
-    Spark LF;
-    Spark LB;
+    CANSparkMax RF;
+    CANSparkMax RB;
+    CANSparkMax LF;
+    CANSparkMax LB;
     DifferentialDrive driver;
 
     public DriveTrainSubsystem(){
-        RF = new Spark(RobotMap.rightSpark1);
-        RB = new Spark(RobotMap.rightSpark2);
-        LF = new Spark(RobotMap.leftSpark1);
-        LB = new Spark(RobotMap.leftSpark2);
+        RF = new CANSparkMax(1, MotorType.kBrushless);
+        RB = new CANSparkMax(2, MotorType.kBrushless);
+        LF = new CANSparkMax(3, MotorType.kBrushless);
+        LB = new CANSparkMax(4, MotorType.kBrushless);
+        LB.setInverted(true);
 
         SpeedControllerGroup right = new SpeedControllerGroup(RF, RB);
-        SpeedControllerGroup left = new SpeedControllerGroup(LF, LB);
+        SpeedControllerGroup left = new SpeedControllerGroup(LB, LF);
         driver = new DifferentialDrive(left, right);
     }
 
@@ -34,14 +37,13 @@ public class DriveTrainSubsystem extends Subsystem{
         setDefaultCommand(new DriveWithControllers());
     }
 
-    public void arcade(){
-        driver.arcadeDrive(0.25, 0.25);
-    }
-
-
     public void arcade(double throttle, double turn){
 
         driver.arcadeDrive(throttle, turn);
+    }
+
+    public void tank(double R, double L){
+        driver.tankDrive(L, R);
     }
 
     public void stop(){
