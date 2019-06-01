@@ -28,11 +28,15 @@ public class Shoot extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(Robot.oi.m1.getAButton())
+    if(Robot.oi.m1.getAButtonPressed())
       Robot.cannon_sub.solenoidOut();
     
-    if(!Robot.oi.m1.getAButton())
+    if(Robot.oi.m1.getAButtonReleased())
       Robot.cannon_sub.solenoidIn();
+
+
+
+    
 
   }
 
