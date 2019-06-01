@@ -35,7 +35,17 @@ public class RobotMap {
 
   public static final int pdpPort = 5;
   public static final int pcmPort = 0;
-  public static final int solenoidPort = 0;
+
+  public static final int s1porta = 0;
+  public static final int s1portb = 7;
+  public static final int s2porta = 1;
+  public static final int s2portb = 6;
+  public static final int s3porta = 2;
+  public static final int s3portb = 5;
+  public static final int s4porta = 3;
+  public static final int s4portb = 4;
+
+
 
   
 
