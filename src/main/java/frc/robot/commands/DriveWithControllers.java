@@ -29,10 +29,7 @@ public class DriveWithControllers extends Command {
   protected void execute() {
 
     Robot.m_subsystem.arcade(Robot.oi.m1.getY(Hand.kLeft), Robot.oi.m1.getX(Hand.kRight));
-    //Robot.m_subsystem.arcade(Robot.oi.m1.getY(), Robot.oi.m1.getX());
-    //Robot.m_subsystem.arcade();
-
-
+    System.out.println(Robot.oi.m1.getY(Hand.kLeft));
 
   }
 
